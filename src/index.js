@@ -1,11 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+const app = require('./app');
+const { ENV } = require('./config');
+const { APP_CONFIG } = ENV;
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>
-);
+let server;
+const startServer = async () => {
+    server = app.listen(APP_CONFIG.PORT, () => {
+        console.info(
+            `Listening to PORT ${APP_CONFIG.PORT} and Environment ${APP_CONFIG.NODE_ENV}`
+        );
+    });
+};
+
+process.on('SIGTERM', () => {
+    console.info('SIGTERM received');
+    if (server) {
+        server.close();
+    }
+});
+
+startServer();
