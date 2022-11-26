@@ -11,6 +11,7 @@ const usersSchema = new mongoose.Schema(
     },
     { timestamps: true }
 );
+
 usersSchema.pre('save', async (next) => {
     const user = this;
     console.log(user.userPassword);
