@@ -4,6 +4,7 @@ const xss = require('xss-clean');
 const cors = require('cors');
 const morgan = require('morgan');
 const { compressionOptions, authLimiter } = require('./middlewares');
+const router = require('./routes');
 const app = express();
 
 app.use(helmet());
@@ -15,5 +16,7 @@ app.use(authLimiter);
 app.use(cors());
 app.options('*', cors());
 app.use(morgan('combined'));
+//routes
+app.use('/v1', router);
 
 module.exports = app;
