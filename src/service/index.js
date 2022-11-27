@@ -1,7 +1,8 @@
-const { userRegisterService } = require('./user.service');
+const { userRegisterService, userLoginService } = require('./user.service');
 
 module.exports = {
     userService: {
-        userRegisterService
+        userRegisterService,
+        userLoginService
     }
 };

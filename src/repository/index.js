@@ -1,7 +1,13 @@
-const { userCreator } = require('./user.repository');
+const {
+    userCreator,
+    userFindOne,
+    userFindOneWithOrCondition
+} = require('./user.repository');
 
 module.exports = {
     userQuery: {
-        userCreator
+        userCreator,
+        userFindOne,
+        userFindOneWithOrCondition
     }
 };

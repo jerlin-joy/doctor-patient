@@ -6,6 +6,7 @@ const {
     notFoundResponse,
     serverErrorResponse
 } = require('./response');
+const { unwantedValuesRemover } = require('./sharedFunctions');
 
 module.exports = {
     response: {
@@ -15,5 +16,8 @@ module.exports = {
         badRequestResponse,
         notFoundResponse,
         serverErrorResponse
+    },
+    sharedFunctions: {
+        unwantedValuesRemover
     }
 };

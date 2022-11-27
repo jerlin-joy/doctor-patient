@@ -1,7 +1,11 @@
-const { userRegisterController } = require('./user.controller');
+const {
+    userRegisterController,
+    userLoginController
+} = require('./user.controller');
 
 module.exports = {
     userController: {
-        userRegisterController
+        userRegisterController,
+        userLoginController
     }
 };
