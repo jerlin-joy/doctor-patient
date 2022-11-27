@@ -6,7 +6,7 @@ module.exports = {
         PORT: process.env.PORT
     },
     MONGOOSE: {
-        MONGODB_URL: '',
+        MONGODB_URL: process.env.MONGODB_URL,
         OPTIONS: {
             useNewUrlParser: true,
             useUnifiedTopology: true
