@@ -5,9 +5,10 @@
   "main": "app.js",
   "scripts": {
     "client": "npm start --prefix client",
+    "socket": "npm start --prefix socket",
     "start": "cross-env NODE_ENV=production node src/index.js",
     "dev": "cross-env NODE_ENV=development nodemon src/index.js",
-    "poststart": "concurrently \"npm run dev\" \"npm run client\""
+    "poststart": "concurrently \"npm run dev\" \"npm run client\" \"npm run socket\""
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +26,7 @@
     "mongoose": "^6.7.3",
     "morgan": "^1.10.0",
     "redis": "^4.5.1",
+    "socket.io": "^4.5.4",
     "xss-clean": "^0.1.1"
   },
   "devDependencies": {

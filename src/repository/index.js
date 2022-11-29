@@ -1,13 +1,28 @@
 const {
     userCreator,
     userFindOne,
-    userFindOneWithOrCondition
+    userFindOneWithOrCondition,
+    userFindAll
 } = require('./user.repository');
+const {
+    conversationCreate,
+    conversationFind
+} = require('./conversation.repository');
+const { messageCreate, messageFind } = require('./message.repository');
 
 module.exports = {
     userQuery: {
         userCreator,
         userFindOne,
-        userFindOneWithOrCondition
+        userFindOneWithOrCondition,
+        userFindAll
+    },
+    conversationQuery: {
+        conversationCreate,
+        conversationFind
+    },
+    messageQuery: {
+        messageCreate,
+        messageFind
     }
 };

@@ -1,11 +1,28 @@
 const {
+    conversationCreateController,
+    conversationFindController
+} = require('./conversation.controler');
+const {
     userRegisterController,
-    userLoginController
+    userLoginController,
+    userGetController
 } = require('./user.controller');
-
+const {
+    messageCreateController,
+    messageGetController
+} = require('./message.controller');
 module.exports = {
     userController: {
         userRegisterController,
-        userLoginController
+        userLoginController,
+        userGetController
+    },
+    conversationController: {
+        conversationCreateController,
+        conversationFindController
+    },
+    messageController: {
+        messageCreateController,
+        messageGetController
     }
 };
