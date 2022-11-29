@@ -1,5 +1,5 @@
 const { userQuery } = require('../repository');
-const { userCreator, userFindOneWithOrCondition } = userQuery;
+const { userCreator, userFindOneWithOrCondition, userFindAll } = userQuery;
 
 const userRegisterService = async ({ bodyData }) => {
     try {
@@ -17,4 +17,12 @@ const userLoginService = async ({ bodyData }) => {
     }
 };
 
-module.exports = { userRegisterService, userLoginService };
+const userGetService = async ({ queryData }) => {
+    try {
+        return await userFindAll({ query: queryData });
+    } catch (error) {
+        throw error;
+    }
+};
+
+module.exports = { userRegisterService, userLoginService, userGetService };

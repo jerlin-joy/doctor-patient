@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { LoginComponent, RegisterComponent } from './components';
+import { LoginComponent, RegisterComponent, ChatComponent } from './components';
 
 function App() {
     return (
@@ -15,6 +15,10 @@ function App() {
                 <Route
                     path='/register'
                     element={<RegisterComponent />}
+                />
+                <Route
+                    path='/chat'
+                    element={<ChatComponent />}
                 />
             </Routes>
         </BrowserRouter>

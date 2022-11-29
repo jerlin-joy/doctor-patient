@@ -1,9 +1,7 @@
 const bcrypt = require('bcrypt');
 const { userQuery } = require('../repository');
-const {
-    userRegisterService,
-    userLoginService
-} = require('../service/user.service');
+const { userService } = require('../service');
+const { userRegisterService, userLoginService, userGetService } = userService;
 const { response } = require('../utils');
 const { badRequestResponse, successResponse } = response;
 const { userFindOne } = userQuery;
@@ -72,7 +70,21 @@ const userLoginController = async (req, res) => {
     }
 };
 
+const userGetController = async (req, res) => {
+    try {
+        console.log(req.query);
+        const user = await userGetService({ queryData: req.query });
+        if (!user) {
+            return badRequestResponse(res, `No data available`, {});
+        }
+        return successResponse(res, 'User data found', user);
+    } catch (error) {
+        badRequestResponse(res, 'Error in login', error);
+    }
+};
+
 module.exports = {
     userRegisterController,
-    userLoginController
+    userLoginController,
+    userGetController
 };

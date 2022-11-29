@@ -7,11 +7,21 @@ const userCreator = async ({ query }) => {
 };
 
 const userFindOne = async ({ query }) => {
-    return await userModel.findOne({ where: query });
+    return await userModel.findOne(query);
 };
 
 const userFindOneWithOrCondition = async ({ query }) => {
     const filteredQuery = unwantedValuesRemover({ object: query });
     return await userModel.findOne({ $or: [filteredQuery] });
 };
-module.exports = { userCreator, userFindOne, userFindOneWithOrCondition };
+
+const userFindAll = async ({ query }) => {
+    return await userModel.find(query);
+};
+
+module.exports = {
+    userCreator,
+    userFindOne,
+    userFindOneWithOrCondition,
+    userFindAll
+};

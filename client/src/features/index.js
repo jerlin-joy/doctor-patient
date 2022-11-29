@@ -1,6 +1,6 @@
-import userSlice from './userSlice';
-import { login, register } from './userSlice';
+import userSlice, { login, register, getUser } from './userSlice';
 
-export const userReducer = userSlice;
 export const loginDispatch = login;
 export const registerDispatch = register;
+export const getUserDispatch = getUser;
+export const userReducer = userSlice;
